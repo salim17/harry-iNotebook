@@ -21,6 +21,51 @@ const NoteState = (props) => {
       "tag": "id",
       "date": "2024-05-03T21:36:25.691Z",
       "__v": 0
+    },
+    {
+      "_id": "663558d9b0806ba838284fd6",
+      "user": "662d6b116ae37036bd97e26c",
+      "title": "aadhar card",
+      "description": "707397638363882",
+      "tag": "id",
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
+    },
+    {
+      "_id": "663558d9b0806ba838284fd6",
+      "user": "662d6b116ae37036bd97e26c",
+      "title": "aadhar card",
+      "description": "707397638363882",
+      "tag": "id",
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
+    },
+    {
+      "_id": "663558d9b0806ba838284fd6",
+      "user": "662d6b116ae37036bd97e26c",
+      "title": "aadhar card",
+      "description": "707397638363882",
+      "tag": "id",
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
+    },
+    {
+      "_id": "663558d9b0806ba838284fd6",
+      "user": "662d6b116ae37036bd97e26c",
+      "title": "aadhar card",
+      "description": "707397638363882",
+      "tag": "id",
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
+    },
+    {
+      "_id": "663558d9b0806ba838284fd6",
+      "user": "662d6b116ae37036bd97e26c",
+      "title": "aadhar card",
+      "description": "707397638363882",
+      "tag": "id",
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
     }
   ];
 
