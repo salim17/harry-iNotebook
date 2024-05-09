@@ -5,7 +5,7 @@ const NoteState = (props) => {
 
   const notesInitial = [
     {
-      "_id": "66316a444142f9585e4d2d06",
+      "_id": "66316a444142f9585e41d2d06",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -14,7 +14,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba8382824fd6",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -23,7 +23,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba8382843fd6",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -32,7 +32,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba838284f4d6",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -41,7 +41,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba838284fd56",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -50,7 +50,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba838284fd66",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -59,7 +59,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "663558d9b0806ba838284fd6",
+      "_id": "663558d9b0806ba838284f99d67",
       "user": "662d6b116ae37036bd97e26c",
       "title": "aadhar card",
       "description": "707397638363882",
@@ -76,15 +76,22 @@ const NoteState = (props) => {
     //TODO Api call
     console.log("Adding a new note");
     let note = {
+      "_id": "663558d9b0806ba83828674fd6",
+      "user": "662d6b116ae37036bd97e26c",
       "title": title,
       "description": description,
       "tag": tag,
+      "date": "2024-05-03T21:36:25.691Z",
+      "__v": 0
     };
     setNotes(notes.concat(note));
   }
   // Delete a Note
-  const deleteNote = () => {
-
+  const deleteNote = (id) => {
+    console.log("Deleting the note with Id: " + id);
+    //TODO Api call
+    const newNotes = notes.filter((note) => {return note._id !== id});
+    setNotes(newNotes);
   }
   // Edit a Note
   const editNote = () => {
