@@ -5,8 +5,10 @@ import AddNote from "./AddNote";
 
 const Notes = () => {
   const notesContext = useContext(context);
-  const { notes, allNotes } = notesContext;
-  const [eNote, setENote] = useState({etitle: "", edescription: "", etag : "default"})
+  const { notes, allNotes, editNote } = notesContext;
+  const [eNote, setENote] = useState({id: "", etitle: "", edescription: "", etag : "default"});
+  const ref = useRef(null);
+  const refClose = useRef(null);
 
   useEffect(() => {
     allNotes();
@@ -14,8 +16,9 @@ const Notes = () => {
   }, []);
 
   const handleClick = (e) => {
-    e.preventDefault();
-    console.log("updatign the note ....", eNote)
+    // e.preventDefault(); // not required as this method is used on a button which is not a part of the form
+    editNote(eNote.id, eNote.etitle, eNote.edescription, eNote.etag);
+    refClose.current.click();
   };
   const onChange = (e) => {
     /* this will update the title and description key with the values of input text,
@@ -25,10 +28,10 @@ const Notes = () => {
 
   const updateNote = (currentNote) => {
     ref.current.click();
-    setENote({etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag});
+    setENote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag});
   };
 
-  const ref = useRef(null);
+
   return (
     <>
       <AddNote />
@@ -107,6 +110,7 @@ const Notes = () => {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                ref={refClose}
               >
                 Close
               </button>
