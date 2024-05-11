@@ -26,7 +26,6 @@ const AddNote = () => {
             className="form-control"
             id="title"
             name="title"
-            aria-describedby="titleHelp"
             placeholder="Enter Title"
             onChange={onChange}
             minLength={5}

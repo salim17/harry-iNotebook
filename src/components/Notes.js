@@ -82,7 +82,6 @@ const Notes = () => {
                     className="form-control"
                     id="etitle"
                     name="etitle"
-                    aria-describedby="etitleHelp"
                     placeholder="Enter Title"
                     onChange={onChange}
                     value={eNote.etitle}
