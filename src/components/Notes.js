@@ -3,7 +3,8 @@ import context from "../context/notes/noteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
 
-const Notes = () => {
+const Notes = (props) => {
+  const {showAlert} = props;
   const notesContext = useContext(context);
   const { notes, allNotes, editNote } = notesContext;
   const [eNote, setENote] = useState({
@@ -24,6 +25,7 @@ const Notes = () => {
     // e.preventDefault(); // not required as this method is used on a button which is not a part of the form
     editNote(eNote.id, eNote.etitle, eNote.edescription, eNote.etag);
     refClose.current.click();
+    props.showAlert("Updated successfully!", "success");
   };
   const onChange = (e) => {
     /* this will update the title and description key with the values of input text,
@@ -43,7 +45,7 @@ const Notes = () => {
 
   return (
     <>
-      <AddNote />
+      <AddNote showAlert={showAlert} />
       <button
         type="button"
         className="btn btn-primary d-none"
@@ -149,6 +151,7 @@ const Notes = () => {
               note={note}
               key={index}
               updateNote={updateNote}
+              showAlert={showAlert}
             ></NoteItem>
           );
         })}

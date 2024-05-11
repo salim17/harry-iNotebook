@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import context from "../context/notes/noteContext";
 
-const AddNote = () => {
+const AddNote = (props) => {
     const notesContext = useContext(context);
     const { addNote } = notesContext;
     const [note, setNote] = useState({title: "", description: "", tag : ""})
@@ -9,6 +9,7 @@ const AddNote = () => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setNote({title: "", description: "", tag: ""});
+        props.showAlert("Note Added sucessfully!", "success");
     }
     const onChange = (e) => {
         /* this will update the title and description key with the values of input text,
