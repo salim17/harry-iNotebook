@@ -6,7 +6,12 @@ import AddNote from "./AddNote";
 const Notes = () => {
   const notesContext = useContext(context);
   const { notes, allNotes, editNote } = notesContext;
-  const [eNote, setENote] = useState({id: "", etitle: "", edescription: "", etag : "default"});
+  const [eNote, setENote] = useState({
+    id: "",
+    etitle: "",
+    edescription: "",
+    etag: "default",
+  });
   const ref = useRef(null);
   const refClose = useRef(null);
 
@@ -28,9 +33,13 @@ const Notes = () => {
 
   const updateNote = (currentNote) => {
     ref.current.click();
-    setENote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag});
+    setENote({
+      id: currentNote._id,
+      etitle: currentNote.title,
+      edescription: currentNote.description,
+      etag: currentNote.tag,
+    });
   };
-
 
   return (
     <>
@@ -77,6 +86,8 @@ const Notes = () => {
                     placeholder="Enter Title"
                     onChange={onChange}
                     value={eNote.etitle}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -89,6 +100,8 @@ const Notes = () => {
                     placeholder="Description"
                     onChange={onChange}
                     value={eNote.edescription}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -114,7 +127,14 @@ const Notes = () => {
               >
                 Close
               </button>
-              <button onClick={handleClick} type="button" className="btn btn-primary">
+              <button
+                disabled={
+                  eNote.etitle.length < 5 || eNote.edescription.length < 5
+                }
+                onClick={handleClick}
+                type="button"
+                className="btn btn-primary"
+              >
                 Update Note
               </button>
             </div>
