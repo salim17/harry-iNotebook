@@ -31,14 +31,14 @@ const Login = () => {
             localStorage.setItem('token', json.authToken);
             navigate("/");
         } else {
-            alert("Invalid Credentials");
+            alert(json.error);
         }
     }
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email address</label>
           <input
             type="email"
             className="form-control"
@@ -49,12 +49,11 @@ const Login = () => {
             value={credentials.email}
             onChange={onChange}
           />
-          <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
+          <div id="emailHelp" className="form-text">
+          We'll never share your email with anyone else.</div>
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password</label>
           <input
             type="password"
             className="form-control"

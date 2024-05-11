@@ -18,8 +18,9 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req);
+    let success = false;
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success, errors: errors.array() });
     }
 
     //Check whether the user with this email exists already
@@ -29,7 +30,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: "Sorry user with this email already exists" });
+          .json({ success, errors: "Sorry user with this email already exists" });
       }
 
       const salt = await bcrypt.genSaltSync(10);
@@ -46,7 +47,8 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET);
       // res.json(user);
-      res.json({ authToken }); // es6 syntax
+      success = true;
+      res.json({ success, authToken }); // es6 syntax
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Some Error Occurred!!");
