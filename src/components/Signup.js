@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
-    const [credentials, setCredentials] = useState({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-    });
-    
-    let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  let navigate = useNavigate();
   const onChange = (e) => {
     /* this will update the email and password key with the values of input text,
          since they are using the same name and the javascript key*/
@@ -31,12 +31,12 @@ const Signup = (props) => {
     console.log(json);
 
     // save the auth token and redirect
-    if(json.success === 'true') {
-        localStorage.setItem("token", json.authToken);
-        navigate("/");
-        props.showAlert("Account Created!", "success");
+    if (json.success) {
+      localStorage.setItem("token", json.authToken);
+      navigate("/");
+      props.showAlert("Account Created!", "success");
     } else {
-        props.showAlert("Some Error Occured!", "danger");
+      props.showAlert("Some Error Occured!", "danger");
     }
   };
   return (
